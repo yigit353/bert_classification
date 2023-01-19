@@ -1,6 +1,6 @@
 # BERT Classification
 
-Use google BERT (tensorflow-based) to do token-level and sentence-level classification.
+Use Google BERT (tensorflow-based) to do token-level and sentence-level classification.
 
 ## Requirements
 - tensorflow>=1.11.0 (or tensorflow-gpu>=1.11.0)
@@ -28,30 +28,30 @@ bert_classification/
 
 **Token level classification datasets (POS, Chunk and NER)**:
 
-Dataset | Language | Classes | Training tokens | Dev tokens | Test tokens
-:---: | :---: | :---: | :---: | :---: | :---:
-CoNLL2000 Chunk (en) | English | 23 | 211,727 | _N.A._ | 47,377
-CoNLL2002 NER (es) | Spanish | 9 | 207,484 (18,797) | 51,645 (4,351) | 52098 (3,558)
-CoNLL2002 NER (nl) | Dutch | 9 | 20,2931 (13,344) | 37,761 (2,616) | 68,994 (3,941)
-CoNLL2003 NER (en) | English | 9 | 20,4567 (23,499) | 51,578 (5,942) | 46,666 (5,648)
-CoNLL2003 NER (de 1) | German | 9 |  208,836 (16,839) | 51,444 (6,588) | 51,943 (5,171)
-GermEval2014 NER (de 2) | German | 25 | 452,853 (42,089) | 41,653 (3,960) | 96,499 (8,969)
-Chinese NER 1 (zh 1) | Chinese | 21 | 1,044,967 (311,637) | 86,454 (24,444) | 119,467 (38,854)
-Chinese NER 2 (Zh 2) | Chinese | 7 | 979,180 (110,093) | 109,870 (12,059) | 219,197 (25,012)
+|         Dataset         | Language | Classes |   Training tokens   |    Dev tokens    |   Test tokens    |
+|:-----------------------:|:--------:|:-------:|:-------------------:|:----------------:|:----------------:|
+|  CoNLL2000 Chunk (en)   | English  |   23    |       211,727       |      _N.A._      |      47,377      |
+|   CoNLL2002 NER (es)    | Spanish  |    9    |  207,484 (18,797)   |  51,645 (4,351)  |  52098 (3,558)   |
+|   CoNLL2002 NER (nl)    |  Dutch   |    9    |  20,2931 (13,344)   |  37,761 (2,616)  |  68,994 (3,941)  |
+|   CoNLL2003 NER (en)    | English  |    9    |  20,4567 (23,499)   |  51,578 (5,942)  |  46,666 (5,648)  |
+|  CoNLL2003 NER (de 1)   |  German  |    9    |  208,836 (16,839)   |  51,444 (6,588)  |  51,943 (5,171)  |
+| GermEval2014 NER (de 2) |  German  |   25    |  452,853 (42,089)   |  41,653 (3,960)  |  96,499 (8,969)  |
+|  Chinese NER 1 (zh 1)   | Chinese  |   21    | 1,044,967 (311,637) | 86,454 (24,444)  | 119,467 (38,854) |
+|  Chinese NER 2 (Zh 2)   | Chinese  |    7    |  979,180 (110,093)  | 109,870 (12,059) | 219,197 (25,012) |
 
 > All the lines in those datasets are convert to `(word, label)` pairs with `\t` as separator and drop all the lines
 start with `-DOCSTART-` and other undesired lines, while the label is in BIO2 format (Begin, Inside, Others).
 
 **Sentence level classification datasets**:
 
-Dataset | Classes | Average sentence length | Train size | Dev size | Test size
-:---: | :---: | :---: | :---: | :---: | :---:
-CR | 2 | 19 | 3,395 | _N.A._ | 377
-MR | 2 | 20 | 9,595 | _N.A._ | 1,066
-SST2 | 2 | 11 | 67,349 | 872 | 1,821
-SST5 | 5 | 18 | 8,544 | 1,101 | 2,210
-SUBJ | 2 | 23 | 9,000 | _N.A._ | 1,000
-TREC | 6 | 10 | 5,452 | _N.A._ | 500
+| Dataset | Classes | Average sentence length | Train size | Dev size | Test size |
+|:-------:|:-------:|:-----------------------:|:----------:|:--------:|:---------:|
+|   CR    |    2    |           19            |   3,395    |  _N.A._  |    377    |
+|   MR    |    2    |           20            |   9,595    |  _N.A._  |   1,066   |
+|  SST2   |    2    |           11            |   67,349   |   872    |   1,821   |
+|  SST5   |    5    |           18            |   8,544    |  1,101   |   2,210   |
+|  SUBJ   |    2    |           23            |   9,000    |  _N.A._  |   1,000   |
+|  TREC   |    6    |           10            |   5,452    |  _N.A._  |    500    |
 
 > All the datasets are converted to `utf-8` format via `iconv -f <src format> -t utf-8 filename -o save_name`. For the 
 _SUBJ_, _MR_ and _CR_ datasets, `90%` for train, `10%` for test, while the dev dataset is the duplicate of test dataset. 
@@ -59,12 +59,12 @@ For _TREC_ dataset, the dev dataset is the duplicate of test dataset.
 
 **Natural language inference (sentence pair classification) datasets**:
 
-Dataset | Classes | Train size | Dev size | Test size
-:---: | :---: | :---: | :---: | :---:
-MRPC | 2 | 4,077 | 1,726 | 1,726
-SICK | 3 | 4,501 | 501 | 4,928
-SNLI | 3 | 549,367 | 9,842 | 9,824
-CoLA | 2 | 8,551 | 527 | 516
+| Dataset | Classes | Train size | Dev size | Test size |
+|:-------:|:-------:|:----------:|:--------:|:---------:|
+|  MRPC   |    2    |   4,077    |  1,726   |   1,726   |
+|  SICK   |    3    |   4,501    |   501    |   4,928   |
+|  SNLI   |    3    |  549,367   |  9,842   |   9,824   |
+|  CoLA   |    2    |   8,551    |   527    |    516    |
 
 > [_MNLI_](https://www.nyu.edu/projects/bowman/multinli/) and [_XNLI_](
 https://www.nyu.edu/projects/bowman/xnli/) datasets are implemented by the official BERT already, see 
