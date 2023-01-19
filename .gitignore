@@ -104,7 +104,6 @@ venv.bak/
 .mypy_cache/
 
 # custom
-bert/
 bert_ckpt/
 checkpoint/
 *.DS_Store

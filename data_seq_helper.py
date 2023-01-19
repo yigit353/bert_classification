@@ -407,7 +407,7 @@ def _write_base(batch_tokens, id2label, prediction, batch_labels, wf, i):
 
 
 def file_writer(output_predict_file, result, batch_tokens, batch_labels, id2label):
-    with open(output_predict_file, 'w') as wf:
+    with open(output_predict_file, 'w', encoding='utf-8') as wf:
         predictions = []
         for m, pred in enumerate(result):
             predictions.extend(pred)
